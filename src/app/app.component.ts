@@ -21,6 +21,7 @@ export class AppComponent {
     }
     else{
       this.passwordLen=0;
+      this.password='';
     }
 }
 
@@ -44,7 +45,7 @@ export class AppComponent {
     console.log("Button was clicked");
     const numbers = '123456789';
     const letters= 'abcdefghijklmnopqrstuvwxyz';
-    const symbols='!@#$%^&*()'
+    const symbols='!@#$%^&*()?'
     let validChars='';
     if(this.includeLetters){
       validChars+=letters;
@@ -61,7 +62,12 @@ export class AppComponent {
       const index = Math.floor(Math.random()* validChars.length);
       generatedPassword+=validChars[index];
     }
-    this.password=generatedPassword;
+    if(this.passwordLen!=0){
+      this.password=generatedPassword;
+    }
+    else{
+      this.password='';
+    }
     console.log(this.password);
   }
   
